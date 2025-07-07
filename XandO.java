@@ -156,4 +156,27 @@ public class XandO {
             btn.setFocusPainted(false);
             btn.setBorder(BorderFactory.createLineBorder(Color.GREEN, 1));
         }
+         
+          void addAction(JButton button, int position) {
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (flag == 0) {
+                    playerOne.add(position);
+                    button.setText("X");
+                    button.setBackground(Color.RED);
+                    flag = 1;
+                } else {
+                    playerTwo.add(position);
+                    button.setText("O");
+                    button.setBackground(Color.BLUE);
+                    flag = 0;
+                }
+                button.setEnabled(false);
+                checkWin();
+            }
+        });
+    }
+
+
 }
