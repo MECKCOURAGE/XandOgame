@@ -178,5 +178,36 @@ public class XandO {
         });
     }
 
+          void checkWin() {
+        if (playerOne.contains(1) && playerOne.contains(2) && playerOne.contains(3) ||
+                playerOne.contains(4) && playerOne.contains(5) && playerOne.contains(6) ||
+                playerOne.contains(7) && playerOne.contains(8) && playerOne.contains(9) ||
+                playerOne.contains(1) && playerOne.contains(4) && playerOne.contains(7) ||
+                playerOne.contains(2) && playerOne.contains(5) && playerOne.contains(8) ||
+                playerOne.contains(3) && playerOne.contains(6) && playerOne.contains(9) ||
+                playerOne.contains(1) && playerOne.contains(5) && playerOne.contains(9) ||
+                playerOne.contains(3) && playerOne.contains(5) && playerOne.contains(7)) {
+            showGameOverDialog(playerOneName + " wins! ");
+            return;
+        }
+
+        if (playerTwo.contains(1) && playerTwo.contains(2) && playerTwo.contains(3) ||
+                playerTwo.contains(4) && playerTwo.contains(5) && playerTwo.contains(6) ||
+                playerTwo.contains(7) && playerTwo.contains(8) && playerTwo.contains(9) ||
+                playerTwo.contains(1) && playerTwo.contains(4) && playerTwo.contains(7) ||
+                playerTwo.contains(2) && playerTwo.contains(5) && playerTwo.contains(8) ||
+                playerTwo.contains(3) && playerTwo.contains(6) && playerTwo.contains(9) ||
+                playerTwo.contains(1) && playerTwo.contains(5) && playerTwo.contains(9) ||
+                playerTwo.contains(3) && playerTwo.contains(5) && playerTwo.contains(7)) {
+            showGameOverDialog(playerTwoName + " wins! ");
+            return;
+        }
+
+        if (playerOne.size() + playerTwo.size() == 9) {
+            showGameOverDialog("It's a draw!");
+        }
+    }
+
+
 
 }
