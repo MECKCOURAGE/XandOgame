@@ -207,7 +207,67 @@ public class XandO {
             showGameOverDialog("It's a draw!");
         }
     }
+          void showGameOverDialog(String messageText) {
+        JDialog dialog = new JDialog(xAndO, "Game Over", true);
+        dialog.setLayout(new BorderLayout());
+        dialog.getContentPane().setBackground(Color.GREEN);
+
+        JLabel message = new JLabel(messageText, JLabel.CENTER);
+        message.setFont(new Font("Segoe UI", Font.BOLD, 20));
+        message.setForeground(Color.WHITE);
+        message.setBorder(BorderFactory.createEmptyBorder(30, 10, 20, 10));
 
 
+        JButton playAgain = new JButton("Play Again");
+        playAgain.setPreferredSize(new Dimension(100, 38));
+        playAgain.setFont(new Font("Bradley Hand ITC", Font.BOLD, 12));
+        playAgain.setForeground(Color.WHITE);
+        playAgain.setBackground(Color.BLUE);
+        playAgain.setFocusPainted(false);
+
+
+        JButton exit = new JButton("Exit");
+        exit.setPreferredSize(new Dimension(100, 38));
+        exit.setFont(new Font("Bradley Hand ITC", Font.BOLD, 12));
+        exit.setForeground(Color.WHITE);
+        exit.setBackground(Color.RED);
+        exit.setFocusPainted(false);
+
+
+        playAgain.addActionListener(e -> {
+            dialog.dispose();
+            resetGame();
+        });
+
+        exit.addActionListener(e -> System.exit(0));
+
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(Color.GREEN);
+        buttonPanel.add(playAgain);
+        buttonPanel.add(Box.createHorizontalStrut(20));
+        buttonPanel.add(exit);
+
+        dialog.add(message, BorderLayout.CENTER);
+        dialog.add(buttonPanel, BorderLayout.SOUTH);
+        dialog.setSize(350, 200);
+        dialog.setLocationRelativeTo(xAndO);
+        dialog.setVisible(true);
+    }
+
+
+
+    void resetGame() {
+        playerOne.clear();
+        playerTwo.clear();
+        flag = 0;
+
+        JButton[] buttons = {btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9};
+        for (JButton button : buttons) {
+            button.setText("");
+            button.setBackground(Color.WHITE);
+            button.setEnabled(true);
+        }
+    }
 
 }
