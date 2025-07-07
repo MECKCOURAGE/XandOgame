@@ -156,9 +156,10 @@ public class XandO {
             btn.setFocusPainted(false);
             btn.setBorder(BorderFactory.createLineBorder(Color.GREEN, 1));
         }
+     }
          
           void addAction(JButton button, int position) {
-        button.addActionListener(new ActionListener() {
+        button.    addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (flag == 0) {
@@ -269,5 +270,6 @@ public class XandO {
             button.setEnabled(true);
         }
     }
+
 
 }
